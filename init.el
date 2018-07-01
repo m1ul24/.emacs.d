@@ -169,7 +169,7 @@
 
 ;; paren-mode
 (setq show-paren-delay 0)
-(show-paren-mode t) 
+(show-paren-mode t)
 (setq show-paren-style 'expression)
 
 ;; undohist
@@ -357,8 +357,8 @@
           :buffer "*helm for docuemont*")))
 
 ;; theme
-(package-install 'solarized-theme)
-(load-theme 'solarized-dark t)
+(package-install 'color-theme-sanityinc-tomorrow)
+(load-theme 'sanityinc-tomorrow-eighties t)
 
 ;; company
 (package-install 'company)
@@ -394,4 +394,3 @@
 ;; dired
 (setq dired-dwim-target t)
 (setq dired-isearch-filenames t)
-
