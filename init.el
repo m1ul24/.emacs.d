@@ -1,6 +1,7 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; load path                                              ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
 ;; add load-path
 (defun add-to-load-path (&rest paths)
   (let (path)
@@ -23,6 +24,7 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; add repo                                               ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
 (require 'cl-lib)
 (require 'package)
 
@@ -64,36 +66,6 @@
   (setq recentf-auto-save-timer
         (run-with-idle-timer 30 t 'recentf-save-list))
   (recentf-mode 1))
-
-;; display spaces and tabs
-(setq whitespace-display-mappings
-      '(
-        (space-mark ?\x3000 [?\□]) ; zenkaku space
-        (newline-mark 10 [182 10]) ; ¶
-        (tab-mark 9 [187 9] [92 9]) ; tab » 187
-        ))
-
-(setq whitespace-style
-      '(
-        spaces
-        trailing
-        newline
-        space-mark
-        tab-mark
-        newline-mark))
-
-;; display zenkaku space
-(setq whitespace-space-regexp "\\(\u3000+\\)")
-
-(global-whitespace-mode t)
-(define-key global-map (kbd "<f5>") 'global-whitespace-mode)
-(set-face-foreground 'whitespace-newline "Gray")
-
-;; delete whitespace
-(add-hook 'before-save-hook 'delete-trailing-whitespace)
-
-;; dtwをdelete-trailing-whitespaceのエイリアスにする
-(defalias 'dtw 'delete-trailing-whitespace)
 
 ;; don't create frames
 (setq ns-pop-up-frames nil)
@@ -161,6 +133,41 @@
 
 ;; (add-to-list 'default-mode-line-format
 ;;              '(:eval (count-lines-and-chars)))
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; whitespace                                             ;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+;; display spaces and tabs
+(setq whitespace-display-mappings
+      '(
+        (space-mark ?\x3000 [?\□]) ; zenkaku space
+        (newline-mark 10 [182 10]) ; ¶
+        (tab-mark 9 [187 9] [92 9]) ; tab » 187
+        ))
+
+(setq whitespace-style
+      '(
+        spaces
+        trailing
+        newline
+        space-mark
+        tab-mark
+        newline-mark))
+
+;; display zenkaku space
+(setq whitespace-space-regexp "\\(\u3000+\\)")
+
+(global-whitespace-mode t)
+(define-key global-map (kbd "<f5>") 'global-whitespace-mode)
+(set-face-foreground 'whitespace-newline "Gray")
+
+;; delete whitespace
+(add-hook 'before-save-hook 'delete-trailing-whitespace)
+
+;; dtwをdelete-trailing-whitespaceのエイリアスにする
+(defalias 'dtw 'delete-trailing-whitespace)
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
