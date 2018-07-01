@@ -168,9 +168,9 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;; paren-mode
-(setq show-paren-delay 0)
-(show-paren-mode t)
-(setq show-paren-style 'expression)
+;; (setq show-paren-delay 0)
+;; (show-paren-mode t)
+;; (setq show-paren-style 'parenthesis)
 
 ;; undohist
 (package-install 'undohist)
@@ -386,9 +386,7 @@
 (setq highlight-indent-guides-method 'character)
 
 ;; Ruby
-;; (setq ruby-insert-encoding-magic-comment nil)
-;; (add-hook-fn 'ruby-mode-hook
-;;   (setq ruby-indent-level 2)
+(setq ruby-insert-encoding-magic-comment nil)
 
 (electric-pair-mode t)
 
