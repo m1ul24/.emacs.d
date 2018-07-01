@@ -1,5 +1,2 @@
-/elpa
-/recentf
-/undohist
-network-security.data
-projectile-bookmarks.eld
+/*
+!/init.el
