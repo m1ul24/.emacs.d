@@ -381,6 +381,7 @@
 (require 'helm-config)
 
 ;; highlight-indent-guides
+(package-install 'highlight-indent-guides)
 (add-hook 'prog-mode-hook 'highlight-indent-guides-mode)
 (setq highlight-indent-guides-method 'character)
 
