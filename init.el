@@ -175,9 +175,9 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;; paren-mode
-;; (setq show-paren-delay 0)
-;; (show-paren-mode t)
-;; (setq show-paren-style 'parenthesis)
+(setq show-paren-delay 0)
+(show-paren-mode t)
+(setq show-paren-style 'parenthesis)
 
 ;; undohist
 (package-install 'undohist)
@@ -265,9 +265,9 @@
 (setq python-check-command "flake8")
 
 ;; Flycheck
-(package-install 'flycheck)
+;;(package-install 'flycheck)
 ;; 文法チェックを実行する
-(add-hook 'after-init-hook #'global-flycheck-mode)
+;;(add-hook 'after-init-hook #'global-flycheck-mode)
 
 ;; quickrunによるコード実行
 (package-install 'quickrun)
