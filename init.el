@@ -101,6 +101,7 @@
 (column-number-mode t)
 ;; line number
 (line-number-mode 0)
+;;(global-linum-mode 1)
 ;; file size
 (size-indication-mode t)
 ;; file name
@@ -143,7 +144,7 @@
 (setq whitespace-display-mappings
       '(
         (space-mark ?\x3000 [?\□]) ; zenkaku space
-        (newline-mark 10 [182 10]) ; ¶
+        ;; (newline-mark 10 [182 10]) ; ¶
         (tab-mark 9 [187 9] [92 9]) ; tab » 187
         ))
 
@@ -167,7 +168,7 @@
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
 
 ;; dtwをdelete-trailing-whitespaceのエイリアスにする
-(defalias 'dtw 'delete-trailing-whitespace)
+;; (defalias 'dtw 'delete-trailing-whitespace)
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -191,14 +192,12 @@
 
 ;; ElScreen
 (package-install 'elscreen)
-;; ElScreenのプレフィックスキーを変更する（初期値はC-z）
-;; (setq elscreen-prefix-key (kbd "C-t"))
 (when (require 'elscreen nil t)
   (elscreen-start)
-  ;; C-z C-zをタイプした場合にデフォルトのC-zを利用する
-  (if window-system
-      (define-key elscreen-map (kbd "C-z") 'iconify-or-deiconify-frame)
-    (define-key elscreen-map (kbd "C-z") 'suspend-emacs)))
+  ;; タブの先頭に[X]を表示しない
+  (setq elscreen-tab-display-kill-screen nil)
+  ;; header-lineの先頭に[<->]を表示しない
+  (setq elscreen-tab-display-control nil))
 
 ;; cua-mode
 (cua-mode t)
@@ -299,8 +298,8 @@
   (setq projectile-enable-caching t))
 
 ;; projectileのプレフィックスキーをs-pに変更
-(define-key projectile-mode-map
-  (kbd "s-p") 'projectile-command-map)
+;; (define-key projectile-mode-map
+;;   (kbd "s-p") 'projectile-command-map)
 
 ;; Helmを使って利用する
 (package-install 'helm-projectile)
@@ -365,7 +364,7 @@
 
 ;; theme
 (package-install 'color-theme-sanityinc-tomorrow)
-(load-theme 'sanityinc-tomorrow-eighties t)
+(load-theme 'sanityinc-tomorrow-bright t)
 
 ;; company
 (package-install 'company)
@@ -378,6 +377,7 @@
 
 ;; neotree
 (package-install 'neotree)
+(package-install 'all-the-icons)
 (global-set-key [f8] 'neotree-toggle)
 (setq neo-smart-open t)
 (setq neo-theme (if (display-graphic-p) 'icons 'arrow))
