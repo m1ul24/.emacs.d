@@ -354,7 +354,7 @@
   "Preconfigured `helm' for helm-for-document."
   (interactive)
   (let ((default (thing-at-point 'symbol)))
-    (helm :sources
+    (helm :soures
           (nconc
            (mapcar (lambda (func)
                      (funcall func default))
@@ -400,3 +400,6 @@
 ;; dired
 (setq dired-dwim-target t)
 (setq dired-isearch-filenames t)
+
+(package-install-with-refresh 'evil)
+(evil-mode 1)
